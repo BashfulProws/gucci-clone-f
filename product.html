@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — GUCCI</title>
+  <meta name="description" content="Shop this iconic Gucci piece. Luxury craftsmanship and timeless design.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/product.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="nav-main">
+      <div class="nav-links"><a href="contact.html">Contact Us</a></div>
+      <div class="nav-logo"><a href="index.html">GUCCI</a></div>
+      <div class="nav-icons">
+        <button class="nav-icon-btn" data-action="open-cart" aria-label="Shopping bag">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge">0</span>
+        </button>
+        <button class="nav-icon-btn" data-action="open-search" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+        </button>
+        <button class="nav-menu-btn" data-action="open-mobile-nav" aria-label="Menu">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          MENU
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pdp">
+
+    <!-- Hero Image -->
+    <section class="pdp-hero">
+      <div class="pdp-hero-image">
+        <img id="mainImage" src="https://media.gucci.com/style/HEXFBFBFB_South_0_160_640x640/1773138610/850676_FAF05_9651_001_074_0000_Light.jpg" alt="Product Image">
+      </div>
+      <span class="pdp-hero-counter"><span id="imgCurrent">1</span> / <span id="imgTotal">1</span></span>
+      <!-- Swipe nav for mobile -->
+      <button class="pdp-hero-prev" id="heroPrev" aria-label="Previous">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button class="pdp-hero-next" id="heroNext" aria-label="Next">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </section>
+
+    <!-- Progress bar -->
+    <div class="pdp-progress">
+      <div class="pdp-progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Product Info -->
+    <section class="pdp-info">
+      <h1 class="pdp-name" id="pdpName">GG Marmont Medium Shoulder Bag</h1>
+      <p class="pdp-price" id="pdpPrice">&#8377;2,48,000</p>
+
+      <!-- Size -->
+      <div class="pdp-size-section" id="sizeSection">
+        <div class="pdp-size-header">
+          <span class="pdp-size-label">Size</span>
+          <button class="pdp-size-guide size-guide-link">Size Guide</button>
+        </div>
+        <div class="pdp-size-options" id="sizeOptions">
+          <button class="pdp-size-btn active" data-size="One Size">One Size</button>
+        </div>
+      </div>
+
+      <!-- Add to Bag -->
+      <button class="pdp-add-to-bag" id="addToBagBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        ADD TO BAG
+      </button>
+
+      <!-- Service links -->
+      <div class="pdp-services">
+        <div class="pdp-service-row">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="#" class="pdp-service-link">Order by Phone</a>
+        </div>
+        <div class="pdp-service-row">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <a href="stores.html" class="pdp-service-link">Find in store and Book an appointment</a>
+        </div>
+        <div class="pdp-service-row">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <a href="#" class="pdp-service-link">Gucci Services</a>
+        </div>
+        <p class="pdp-services-note">Complimentary Shipping, Complimentary Exchanges & Returns, Secure Payments and Signature Packaging</p>
+      </div>
+
+      <!-- Product Description -->
+      <div class="pdp-description">
+        <h2 class="pdp-desc-title">Product Description</h2>
+        <p class="pdp-desc-style" id="pdpStyle">Style WB001</p>
+        <p class="pdp-desc-text" id="pdpDescription">Matelasse chevron leather with Double G hardware and chain strap.</p>
+      </div>
+
+      <!-- Accordion sections -->
+      <div class="pdp-accordions">
+        <div class="pdp-accordion-item">
+          <button class="pdp-accordion-trigger">
+            <span>Product Details</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="pdp-accordion-content">
+            <p>Double G hardware. Chain shoulder strap with leather shoulder pad. Interior open pocket. Flap with spring closure. Dust bag included.</p>
+          </div>
+        </div>
+        <div class="pdp-accordion-item">
+          <button class="pdp-accordion-trigger">
+            <span>Materials & Care</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="pdp-accordion-content">
+            <p>Store in the provided dust bag when not in use. Avoid exposure to direct sunlight and humidity. Clean leather with a soft, dry cloth.</p>
+          </div>
+        </div>
+        <div class="pdp-accordion-item">
+          <button class="pdp-accordion-trigger">
+            <span>Shipping & Returns</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="pdp-accordion-content">
+            <p>Complimentary standard delivery (3-5 business days). Express delivery available. Free returns within 14 days. Items must be unworn with original packaging.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- You May Also Like -->
+    <section class="pdp-related">
+      <div class="pdp-related-header">
+        <h2 class="pdp-related-title">You May Also Like</h2>
+        <div class="pdp-related-nav">
+          <button class="pdp-related-btn" id="relatedPrev" aria-label="Scroll left">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button class="pdp-related-btn" id="relatedNext" aria-label="Scroll right">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="pdp-related-scroll" id="relatedGrid"></div>
+    </section>
+
+    <!-- Bottom Breadcrumb -->
+    <nav class="pdp-bottom-breadcrumb" id="pdpBreadcrumb">
+      <a href="women.html">Women</a>
+      <span>/</span>
+      <a href="women.html?cat=women_bags">Handbags</a>
+    </nav>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>May We Help You?</h5>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">My Order</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>The Company</h5>
+          <ul>
+            <li><a href="about.html">About Gucci</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Store Locator</h5>
+          <div class="footer-store-locator">
+            <input type="text" placeholder="Country/Region, City" readonly onclick="window.location='stores.html'">
+          </div>
+          <div class="footer-country">
+            <h5>Country/Region</h5>
+            <a href="#">India</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Guccio Gucci S.p.A.</p>
+        <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Cookies</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay"></div>
+  <aside class="cart-drawer">
+    <div class="cart-header"><h3>Shopping Bag</h3><button class="cart-close" aria-label="Close">&times;</button></div>
+    <div class="cart-body"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>&#8377;0</strong></div>
+      <p class="cart-note">Shipping and taxes calculated at checkout.</p>
+      <button class="btn-checkout">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay">
+    <button class="search-close" aria-label="Close search">&times;</button>
+    <div class="search-form">
+      <input class="search-input" type="search" placeholder="Search Gucci..." autocomplete="off">
+      <button class="search-submit" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg></button>
+    </div>
+    <div class="search-results"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" role="status">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+    <span class="toast-msg"></span>
+    <button class="toast-close" aria-label="Close">&times;</button>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <!-- Size Guide Modal -->
+  <div class="sg-overlay" id="sizeGuideOverlay">
+    <div class="sg-modal">
+      <button class="sg-close" aria-label="Close size guide">&times;</button>
+      <h2 class="sg-title">Size Guide</h2>
+      <div class="sg-tabs">
+        <button class="sg-tab active" data-sg-tab="bags">Bags</button>
+        <button class="sg-tab" data-sg-tab="shoes">Shoes</button>
+        <button class="sg-tab" data-sg-tab="clothing">Clothing</button>
+      </div>
+      <div class="sg-panel active" data-sg-panel="bags">
+        <div class="sg-bags-grid">
+          <div class="sg-bag-card"><h4 class="sg-bag-size">Small</h4><p class="sg-bag-dim">25 x 18 x 8 cm</p></div>
+          <div class="sg-bag-card"><h4 class="sg-bag-size">Medium</h4><p class="sg-bag-dim">30 x 21 x 10 cm</p></div>
+          <div class="sg-bag-card"><h4 class="sg-bag-size">Large</h4><p class="sg-bag-dim">38 x 28 x 14 cm</p></div>
+        </div>
+      </div>
+      <div class="sg-panel" data-sg-panel="shoes">
+        <table class="sg-table"><thead><tr><th>EU</th><th>UK</th><th>US</th></tr></thead>
+        <tbody><tr><td>36</td><td>3</td><td>6</td></tr><tr><td>37</td><td>4</td><td>7</td></tr><tr><td>38</td><td>5</td><td>8</td></tr><tr><td>39</td><td>6</td><td>9</td></tr><tr><td>40</td><td>7</td><td>10</td></tr></tbody></table>
+      </div>
+      <div class="sg-panel" data-sg-panel="clothing">
+        <table class="sg-table"><thead><tr><th>Size</th><th>Chest</th><th>Waist</th></tr></thead>
+        <tbody><tr><td>XS</td><td>80-84</td><td>62-66</td></tr><tr><td>S</td><td>84-88</td><td>66-70</td></tr><tr><td>M</td><td>88-92</td><td>70-74</td></tr><tr><td>L</td><td>92-96</td><td>74-78</td></tr></tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    // ── Load Product Data ─────────────────────────
+    let currentProduct = null;
+    let selectedSize = 'One Size';
+    const params = new URLSearchParams(window.location.search);
+    const pid = params.get('id');
+
+    if (pid && typeof findProduct === 'function') {
+      const p = findProduct(pid);
+      if (p) {
+        currentProduct = p;
+        document.getElementById('pdpName').textContent = p.name;
+        document.getElementById('pdpPrice').textContent = '\u20B9' + p.price.toLocaleString('en-IN');
+        document.getElementById('pdpDescription').textContent = p.description || '';
+        document.getElementById('pdpStyle').textContent = 'Style ' + p.id;
+        document.getElementById('mainImage').src = p.image;
+        document.getElementById('mainImage').alt = p.name;
+        document.querySelector('title').textContent = p.name + ' \u2014 GUCCI';
+
+        // Dynamic product details based on category/subcategory
+        const cat = p.category;
+        const sub = (p.subcategory || '').toLowerCase();
+        const name = p.name.toLowerCase();
+        let details = '', materials = '', shipping = 'Complimentary standard delivery (3-5 business days). Express delivery available. Free returns within 14 days. Items must be unworn with original packaging and tags.';
+
+        if (sub.includes('watch') || name.includes('watch')) {
+          details = 'Swiss made timepiece with sapphire crystal glass. Water resistant. Gucci signature on dial and caseback. Presented in a Gucci watch box.';
+          materials = 'Stainless steel case and bracelet. Sapphire crystal. Swiss quartz movement. Wipe with a soft, dry cloth. Avoid contact with chemicals and perfumes. Service recommended every 3-5 years.';
+        } else if (sub.includes('jewelry') || name.includes('18k') || name.includes('diamond') || name.includes('ring') || name.includes('necklace') || name.includes('bracelet') || name.includes('earring')) {
+          details = 'Fine jewelry piece crafted in Italy. Presented in a Gucci jewelry box. Each piece is unique and may vary slightly.';
+          materials = 'Precious metals and stones. Avoid contact with perfumes, lotions and chemicals. Remove before bathing or swimming. Store in the provided jewelry box when not in use. Clean gently with a soft polishing cloth.';
+        } else if (cat.includes('bag') || sub.includes('bag') || sub.includes('tote') || sub.includes('shoulder') || sub.includes('crossbody') || sub.includes('backpack') || sub.includes('messenger') || sub.includes('belt bag') || sub.includes('duffle') || sub.includes('briefcase') || sub.includes('mini bag') || sub.includes('boston')) {
+          details = 'Made in Italy. ' + p.description + '. Interior open pocket. Dust bag included. Signature Gucci packaging.';
+          materials = 'Store in the provided dust bag when not in use. Avoid exposure to direct sunlight, humidity and rain. Clean leather with a soft, dry cloth. Do not use solvents or chemicals.';
+        } else if (cat.includes('shoe') || sub.includes('shoe') || sub.includes('sneaker') || sub.includes('loafer') || sub.includes('sandal') || sub.includes('driver') || sub.includes('pump') || sub.includes('boot') || sub.includes('ballerina')) {
+          details = 'Made in Italy. ' + p.description + '. Leather sole. Presented in a Gucci shoe box with dust bags.';
+          materials = 'Leather upper and sole. Use a shoe tree to maintain shape. Clean with a soft, dry cloth. Apply leather conditioner periodically. Store in the provided dust bags. Avoid prolonged exposure to water.';
+        } else if (cat === 'beauty' || cat === 'fragrances' || sub.includes('fragrance') || sub.includes('lip') || sub.includes('face')) {
+          details = p.description + '. Presented in signature Gucci packaging. Perfect as a gift.';
+          materials = 'For external use only. Avoid contact with eyes. Store in a cool, dry place away from direct sunlight. Check ingredients list for allergens.';
+          shipping = 'Complimentary standard delivery (3-5 business days). Due to shipping regulations, fragrances and beauty products may have restrictions to certain locations. Returns accepted within 14 days if unopened and sealed.';
+        } else if (cat === 'decor' || sub.includes('tableware') || sub.includes('textile') || sub.includes('wallpaper') || sub.includes('home') || sub.includes('lifestyle') || sub.includes('furniture')) {
+          details = p.description + '. Made in Italy. Presented in Gucci packaging.';
+          materials = 'Handle with care. For porcelain items: hand wash only, not dishwasher or microwave safe. For textiles: dry clean recommended. For wallpaper: professional installation recommended. Store away from direct sunlight.';
+          shipping = 'Complimentary standard delivery (5-7 business days). Oversized items may require special delivery arrangements. Returns accepted within 14 days in original condition and packaging.';
+        } else if (sub.includes('jacket') || sub.includes('knitwear') || sub.includes('tops') || sub.includes('bottoms') || sub.includes('dress') || sub.includes('skirt') || cat.includes('rtw') || sub.includes('clothing')) {
+          details = 'Made in Italy. ' + p.description + '. See size guide for detailed measurements.';
+          materials = 'Dry clean only. Do not bleach. Iron on low heat if needed. Store on padded hangers. Avoid prolonged exposure to direct sunlight to prevent fading.';
+        } else if (sub.includes('belt') || sub.includes('hat') || sub.includes('scarf') || sub.includes('eyewear') || sub.includes('slg') || cat === 'accessories') {
+          details = 'Made in Italy. ' + p.description + '. Presented in Gucci packaging.';
+          materials = 'Leather accessories: clean with a soft, dry cloth. Store in the provided dust bag. Avoid exposure to water and direct sunlight. For eyewear: clean lenses with the provided cloth. Store in the case when not in use.';
+        } else if (cat === 'children') {
+          details = 'Made in Italy. ' + p.description + '. Presented in Gucci packaging.';
+          materials = 'Please refer to the care label inside the garment. Machine wash cold where applicable. For leather items, wipe clean with a damp cloth.';
+        } else if (cat === 'travel') {
+          details = 'Made in Italy. ' + p.description + '. Presented in Gucci packaging with dust bag.';
+          materials = 'GG Supreme canvas with leather trim. Wipe clean with a damp cloth. Store in the provided dust bag. Avoid overpacking to maintain shape.';
+        } else {
+          details = 'Made in Italy. ' + p.description + '. Presented in Gucci packaging.';
+          materials = 'Please refer to the product label for specific care instructions. Store in the provided packaging when not in use.';
+        }
+
+        document.querySelector('.pdp-accordions .pdp-accordion-item:nth-child(1) .pdp-accordion-content p').textContent = details;
+        document.querySelector('.pdp-accordions .pdp-accordion-item:nth-child(2) .pdp-accordion-content p').textContent = materials;
+        document.querySelector('.pdp-accordions .pdp-accordion-item:nth-child(3) .pdp-accordion-content p').textContent = shipping;
+
+        // Dynamic size options based on product type
+        const sizeSection = document.getElementById('sizeSection');
+        const sizeOptions = document.getElementById('sizeOptions');
+        let sizes = [];
+
+        if (cat.includes('shoe') || sub.includes('shoe') || sub.includes('sneaker') || sub.includes('loafer') || sub.includes('sandal') || sub.includes('driver') || sub.includes('pump') || sub.includes('boot') || sub.includes('ballerina') || name.includes('sneaker') || name.includes('loafer') || name.includes('sandal') || name.includes('shoe') || name.includes('pump') || name.includes('boot')) {
+          sizes = ['Size 2', 'Size 3', 'Size 4', 'Size 5', 'Size 6', 'Size 7', 'Size 8', 'Size 9', 'Size 10', 'Size 11', 'Size 12'];
+        } else if (sub.includes('jacket') || sub.includes('knitwear') || sub.includes('tops') || sub.includes('bottoms') || sub.includes('dress') || sub.includes('skirt') || sub.includes('clothing') || cat.includes('rtw')) {
+          sizes = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
+        } else if (sub.includes('belt')) {
+          sizes = ['75cm', '80cm', '85cm', '90cm', '95cm', '100cm', '105cm', '110cm'];
+        } else if (sub.includes('ring') || name.includes('ring')) {
+          sizes = ['Size 6', 'Size 7', 'Size 8', 'Size 9', 'Size 10', 'Size 11', 'Size 12'];
+        } else if (sub.includes('bracelet') || name.includes('bracelet') || sub.includes('bangle')) {
+          sizes = ['15cm', '16cm', '17cm', '18cm', '19cm', '20cm'];
+        } else {
+          sizes = ['One Size'];
+        }
+
+        if (sizeOptions) {
+          if (sizes.length === 1 && sizes[0] === 'One Size') {
+            // One Size products — auto-select
+            sizeOptions.innerHTML = '<button class="pdp-size-btn active" data-size="One Size">One Size</button>';
+            selectedSize = 'One Size';
+          } else {
+            // Multiple sizes — none pre-selected
+            sizeOptions.innerHTML = sizes.map(s =>
+              '<button class="pdp-size-btn" data-size="' + s + '">' + s + '</button>'
+            ).join('');
+            selectedSize = null;
+          }
+          // Bind size click events
+          sizeOptions.querySelectorAll('.pdp-size-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              sizeOptions.querySelectorAll('.pdp-size-btn').forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+              selectedSize = btn.dataset.size;
+              // Remove error state if it was shown
+              sizeSection.classList.remove('size-error');
+              const errMsg = sizeSection.querySelector('.pdp-size-error');
+              if (errMsg) errMsg.remove();
+            });
+          });
+        }
+
+        // Set breadcrumb based on category
+        const bc = document.getElementById('pdpBreadcrumb');
+        const catMap = {
+          'women_bags': ['handbag.html', 'Handbags'],
+          'women_rtw': ['women.html', 'Women'],
+          'women_shoes': ['women.html', 'Women'],
+          'men_rtw': ['men.html', 'Men'],
+          'men_shoes': ['men.html', 'Men'],
+          'men_bags': ['men.html', 'Men'],
+          'accessories': ['jewelry.html', 'Jewelry & Watches'],
+          'fine_jewelry': ['jewelry.html', 'Jewelry & Watches'],
+          'beauty': ['beauty.html', 'Beauty'],
+          'fragrances': ['beauty.html', 'Fragrances'],
+          'gifts': ['gifts.html', 'Gifts'],
+          'children': ['children.html', 'Children'],
+          'travel': ['travel.html', 'Travel'],
+          'decor': ['decor.html', 'Decor & Lifestyle']
+        };
+        const cm = catMap[p.category] || ['index.html', 'Shop'];
+        bc.innerHTML = '<a href="' + cm[0] + '">' + cm[1] + '</a><span>/</span><a href="' + cm[0] + '">' + (p.subcategory || 'Collection') + '</a>';
+
+        window._currentProduct = p;
+      }
+    }
+
+    // ── Add to Bag ──────────────────────────────────
+    document.getElementById('addToBagBtn').addEventListener('click', () => {
+      // Check if size is selected
+      if (!selectedSize) {
+        const sizeSection = document.getElementById('sizeSection');
+        sizeSection.classList.add('size-error');
+        if (!sizeSection.querySelector('.pdp-size-error')) {
+          const errEl = document.createElement('p');
+          errEl.className = 'pdp-size-error';
+          errEl.textContent = 'Please select a size';
+          sizeSection.appendChild(errEl);
+        }
+        sizeSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      const p = currentProduct || { id: 'WB001', name: 'GG Marmont Medium Shoulder Bag', price: 248000, image: '' };
+      addToCart({
+        id: p.id,
+        name: p.name,
+        price: p.price,
+        image: p.image,
+        size: selectedSize
+      });
+      openCart();
+    });
+
+    // ── PDP Accordions ──────────────────────────────
+    document.querySelectorAll('.pdp-accordion-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.pdp-accordion-item');
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.pdp-accordion-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // ── Related Products ────────────────────────────
+    if (typeof getAllProducts === 'function') {
+      const all = getAllProducts();
+      const related = currentProduct
+        ? all.filter(p => p.category === currentProduct.category && p.id !== currentProduct.id).slice(0, 6)
+        : all.slice(0, 6);
+      const grid = document.getElementById('relatedGrid');
+      if (grid) {
+        grid.innerHTML = related.map(p => {
+          const priceStr = '\u20B9' + p.price.toLocaleString('en-IN');
+          return '<a href="product.html?id=' + p.id + '" class="pdp-related-card">' +
+            '<div class="pdp-related-img"><img src="' + p.image + '" alt="' + p.name + '" loading="lazy"></div>' +
+            '<p class="pdp-related-name">' + p.name + '</p>' +
+            '<p class="pdp-related-price">' + priceStr + '</p>' +
+          '</a>';
+        }).join('');
+      }
+    }
+
+    // ── Image counter (single image, but future-ready) ──
+    document.getElementById('imgTotal').textContent = '1';
+    document.getElementById('imgCurrent').textContent = '1';
+    const bar = document.getElementById('progressBar');
+    if (bar) bar.style.width = '100%';
+
+    // ── Related products scroll buttons ──
+    const relatedScroll = document.getElementById('relatedGrid');
+    const prevBtn = document.getElementById('relatedPrev');
+    const nextBtn = document.getElementById('relatedNext');
+    if (relatedScroll && prevBtn && nextBtn) {
+      const scrollAmount = 300;
+      prevBtn.addEventListener('click', () => {
+        relatedScroll.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+      nextBtn.addEventListener('click', () => {
+        relatedScroll.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>

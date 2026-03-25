@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist — GUCCI</title>
+  <meta name="description" content="View your saved items and wishlist at Gucci.">
+  <meta property="og:title" content="Wishlist — GUCCI">
+  <meta property="og:description" content="View your saved items and wishlist at Gucci.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/catalogue.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- ── ANNOUNCEMENT BAR ─────────────────────── -->
+  <!-- ── SITE HEADER ──────────────────────────── -->
+  <header class="site-header">
+    <nav class="nav-main">
+      <div class="nav-links"><a href="contact.html">Contact Us</a></div>
+      <div class="nav-logo"><a href="index.html">GUCCI</a></div>
+      <div class="nav-icons">
+        <button class="nav-icon-btn" data-action="open-cart" aria-label="Shopping bag">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge">0</span>
+        </button>
+        <button class="nav-icon-btn" data-action="open-search" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+        </button>
+        <button class="nav-menu-btn" data-action="open-mobile-nav" aria-label="Menu">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          MENU
+        </button>
+      </div>
+    </nav>
+
+  </header>
+
+  <!-- ── MAIN ──────────────────────────────────── -->
+  <main class="catalogue-main">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>&rsaquo;</span>
+        <span style="color:var(--black)">Wishlist</span>
+      </div>
+
+      <!-- Section Header -->
+      <div class="page-section-header" style="text-align:center; padding:2rem 0 1rem;">
+        <h1 class="section-title" style="font-family:var(--font-display); font-size:2rem; font-weight:400; letter-spacing:.08em; text-transform:uppercase;">Your Wishlist</h1>
+        <p style="color:var(--grey-600); margin-top:.5rem;"><span id="wishlistCount">0</span> items saved</p>
+      </div>
+
+      <!-- Empty State -->
+      <div id="wishlistEmpty" class="wishlist-empty" style="text-align:center; padding:4rem 1rem;">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--grey-400); margin-bottom:1.5rem;">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <h2 style="font-family:var(--font-display); font-size:1.25rem; font-weight:400; letter-spacing:.06em; margin-bottom:.75rem;">Your wishlist is empty</h2>
+        <p style="color:var(--grey-600); max-width:400px; margin:0 auto 2rem; line-height:1.6;">Browse our collections and tap the heart icon to save your favourite pieces.</p>
+        <a href="women.html" class="btn-primary" style="display:inline-block; padding:.875rem 2.5rem; background:var(--black); color:var(--white); text-decoration:none; font-size:.8rem; letter-spacing:.12em; text-transform:uppercase;">Explore Collection</a>
+      </div>
+
+      <!-- Wishlist Grid (rendered by JS) -->
+      <div id="wishlistGrid" class="product-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; padding-bottom:4rem;"></div>
+
+    </div>
+  </main>
+
+  <!-- ── RECENTLY VIEWED ─────────────────────── -->
+  <section class="recently-viewed" style="padding:3rem 0; border-top:1px solid var(--grey-200);">
+    <div class="container">
+      <h2 class="section-title" style="font-family:var(--font-display); font-size:1.25rem; font-weight:400; letter-spacing:.08em; text-transform:uppercase; text-align:center; margin-bottom:2rem;">Recently Viewed</h2>
+      <div id="recentlyViewedGrid" class="product-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem;"></div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>May We Help You?</h5>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">My Order</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Email Unsubscribe</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>The Company</h5>
+          <ul>
+            <li><a href="about.html">About Gucci</a></li>
+            <li><a href="#">Gucci Equilibrium</a></li>
+            <li><a href="#">Code of Ethics</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Legal</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Cookie Settings</a></li>
+            <li><a href="#">Corporate Information</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Store Locator</h5>
+          <div class="footer-store-locator">
+            <input type="text" placeholder="Country/Region, City" readonly onclick="window.location='stores.html'">
+          </div>
+          <div class="footer-email-signup" style="margin-top:32px">
+            <h5>Sign Up for Gucci Updates</h5>
+            <p>By entering your email address below, you consent to receiving our newsletter with access to our latest collections, events and initiatives.</p>
+            <input type="email" placeholder="Email">
+          </div>
+          <div class="footer-country">
+            <h5>Country/Region</h5>
+            <a href="#">India</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-services">
+        <h5>Gucci Services</h5>
+        <div class="footer-services-links">
+          <a href="#">Discover Our Services</a>
+          <a href="stores.html">Book an Appointment</a>
+          <a href="#">Collect in Store</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Guccio Gucci S.p.A.</p>
+        <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Cookies</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay"></div>
+  <aside class="cart-drawer">
+    <div class="cart-header"><h3>Shopping Bag</h3><button class="cart-close" aria-label="Close">&times;</button></div>
+    <div class="cart-body"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>₹0</strong></div>
+      <p class="cart-note">Shipping and taxes calculated at checkout.</p>
+      <button class="btn-checkout">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay">
+    <button class="search-close" aria-label="Close search">&times;</button>
+    <div class="search-form">
+      <input class="search-input" type="search" placeholder="Search Gucci..." autocomplete="off">
+      <button class="search-submit" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg></button>
+    </div>
+    <div class="search-results"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" role="status">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+    <span class="toast-msg"></span>
+    <button class="toast-close" aria-label="Close notification">&times;</button>
+  </div>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

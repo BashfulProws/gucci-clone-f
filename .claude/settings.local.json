@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080)",
+      "Bash(where node.exe)",
+      "Read(//c/Program Files/nodejs/**)",
+      "Read(//c/Users/tinug/AppData/Roaming/**)",
+      "Bash(npx --version)",
+      "Read(//c/Users/tinug/AppData/Local/Programs/**)",
+      "Read(//c//**)",
+      "Read(//c/Users/tinug/scoop/apps/**)",
+      "Bash(cmd.exe //c \"where node\")",
+      "Bash(cmd.exe //c \"where npm\")",
+      "Read(//c/Users/tinug/AppData/Local/**)",
+      "Read(//c/Users/tinug/**)",
+      "Bash(powershell.exe -Command \"Get-Command node -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source\")",
+      "Bash(cmd.exe //c start \"\" \"C:\\\\Users\\\\tinug\\\\Desktop\\\\gucci-clone\\\\gucci-clone\\\\index.html\")",
+      "Bash(grep -o 'category: \"\"\"\"[^\"\"\"\"]*\"\"\"\"' js/products.js)",
+      "Bash(grep -o 'id: \"\"\"\"[^\"\"\"\"]*\"\"\"\"' js/products.js)",
+      "Bash(grep -o 'image: \"\"\"\"[^\"\"\"\"]*\"\"\"\"' js/products.js)",
+      "Bash(grep -oP 'image: \"\"\"\"https://media\\\\.gucci\\\\.com[^\"\"\"\"]+' js/products.js)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/tinug/Desktop/gucci-clone/gucci-clone/**)",
+      "Bash(done)",
+      "Bash(grep -c '\\\\$[0-9]' js/products.js)",
+      "Bash(grep -o 'id: \"\"\"\"[A-Z]*[0-9]*\"\"\"\"' js/products.js)",
+      "Bash(uniq -f0 -D)",
+      "Bash(sort -t'|' -k4)",
+      "Bash(grep -n 'getProductsByCategories\\\\|homeBestsellers\\\\|getAllProducts' *.html)",
+      "Bash(sort -t: -k2 -n)",
+      "Bash(for img:*)",
+      "Bash(grep \"$img\" js/products.js)",
+      "Bash(grep 'category: \"\"\"\"women_bags\"\"\"\"' js/products.js2)"
+    ]
+  }
+}

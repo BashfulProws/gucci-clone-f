@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty — GUCCI</title>
+  <meta name="description" content="Shop Gucci beauty. Discover luxury fragrances, makeup, and skincare.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/catalogue.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    /* ── BEAUTY LANDING PAGE ─────────────────────── */
+    .beauty-hero {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      min-height: 420px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #d8cfc8;
+    }
+    .beauty-hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .beauty-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.15);
+    }
+    .beauty-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--white);
+      max-width: 600px;
+      padding: 0 24px;
+    }
+    .beauty-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .beauty-hero-desc {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.6;
+    }
+    .beauty-hero-desc a {
+      color: var(--white);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── CATEGORY TILES — 2-col grid ─────────────── */
+    .beauty-categories {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--white);
+    }
+    .beauty-cat-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 56px 24px 40px;
+      text-decoration: none;
+      color: var(--black);
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+    .beauty-cat-tile:hover { opacity: 0.8; }
+    .beauty-cat-img {
+      width: 180px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .beauty-cat-img img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .beauty-cat-name {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+    .beauty-cat-link {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      color: var(--black);
+    }
+
+    /* ── PRODUCTS SECTION (below tiles) ──────────── */
+    .beauty-products {
+      background: var(--white);
+      padding: 0 0 40px;
+    }
+    .beauty-products-header {
+      text-align: center;
+      padding: 48px 24px 32px;
+    }
+    .beauty-products-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .beauty-products-count {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray-400);
+    }
+
+    /* Sub-nav for beauty filtering */
+    .beauty-subnav {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-bottom: 1px solid var(--gray-200);
+      margin-bottom: 0;
+    }
+    .beauty-subnav-link {
+      padding: 12px 20px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gray-600);
+      cursor: pointer;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
+    .beauty-subnav-link:hover { color: var(--black); }
+    .beauty-subnav-link.active {
+      color: var(--black);
+      font-weight: 600;
+      border-bottom-color: var(--black);
+    }
+
+    @media (max-width: 768px) {
+      .beauty-hero { height: 50vh; min-height: 320px; }
+      .beauty-cat-tile { padding: 32px 16px 28px; }
+      .beauty-cat-img { width: 120px; height: 160px; }
+    }
+    @media (max-width: 480px) {
+      .beauty-categories { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="nav-main">
+      <div class="nav-links"><a href="contact.html">Contact Us</a></div>
+      <div class="nav-logo"><a href="index.html">GUCCI</a></div>
+      <div class="nav-icons">
+        <button class="nav-icon-btn" data-action="open-cart" aria-label="Shopping bag">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge">0</span>
+        </button>
+        <button class="nav-icon-btn" data-action="open-search" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+        </button>
+        <button class="nav-menu-btn" data-action="open-mobile-nav" aria-label="Menu">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          MENU
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero Banner -->
+    <section class="beauty-hero">
+      <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1920&q=90&fit=crop" alt="Gucci Beauty" loading="eager">
+      <div class="beauty-hero-overlay"></div>
+      <div class="beauty-hero-content">
+        <h1 class="beauty-hero-title">Gucci Beauty</h1>
+        <p class="beauty-hero-desc">The world of Gucci Beauty envisions true expression within a line of makeup, <a href="#fragrances">fragrances</a> and <a href="#lip">lip</a> products.</p>
+      </div>
+    </section>
+
+    <!-- Category Tiles — 2x2 grid matching gucci.com -->
+    <section class="beauty-categories">
+      <a href="#fragrances" class="beauty-cat-tile" data-filter="women's fragrance">
+        <div class="beauty-cat-img">
+          <img src="https://media.gucci.com/style/HEXFBFBFB_South_0_160_640x640/1732783517/792649_99999_0099_001_100_0000_Light.jpg" alt="Women's Fragrances" loading="lazy">
+        </div>
+        <h3 class="beauty-cat-name">Fragrances</h3>
+        <span class="beauty-cat-link">Shop Now</span>
+      </a>
+      <a href="#lip" class="beauty-cat-tile" data-filter="lip">
+        <div class="beauty-cat-img">
+          <img src="https://media.gucci.com/style/HEXFBFBFB_South_0_160_640x640/1715078703/805087_9PL12_9509_001_100_0000_Light.jpg" alt="Lips" loading="lazy">
+        </div>
+        <h3 class="beauty-cat-name">Lips</h3>
+        <span class="beauty-cat-link">Shop Now</span>
+      </a>
+      <a href="#all" class="beauty-cat-tile" data-filter="all">
+        <div class="beauty-cat-img">
+          <img src="https://media.gucci.com/style/HEXFBFBFB_South_0_160_640x640/1768299303/852697_99999_0099_001_100_0000_Light.jpg" alt="All Beauty" loading="lazy">
+        </div>
+        <h3 class="beauty-cat-name">All Beauty</h3>
+        <span class="beauty-cat-link">Shop Now</span>
+      </a>
+    </section>
+
+    <!-- Products Section -->
+    <section class="beauty-products" id="beautyProducts">
+      <div class="beauty-products-header">
+        <h2 class="beauty-products-title">Shop Beauty</h2>
+        <p class="beauty-products-count" id="resultCount">8 Items</p>
+      </div>
+
+      <!-- Sub-nav filters -->
+      <nav class="beauty-subnav">
+        <button class="beauty-subnav-link active" data-cat="all">All</button>
+        <button class="beauty-subnav-link" data-cat="women's fragrance">Women's Fragrances</button>
+        <button class="beauty-subnav-link" data-cat="men's fragrance">Men's Fragrances</button>
+        <button class="beauty-subnav-link" data-cat="lip">Lip</button>
+      </nav>
+
+      <!-- Product Grid -->
+      <div class="cat-grid" id="productGrid"></div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>May We Help You?</h5>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">My Order</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>The Company</h5>
+          <ul>
+            <li><a href="about.html">About Gucci</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Store Locator</h5>
+          <div class="footer-store-locator">
+            <input type="text" placeholder="Country/Region, City" readonly onclick="window.location='stores.html'">
+          </div>
+          <div class="footer-country">
+            <h5>Country/Region</h5>
+            <a href="#">India</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Guccio Gucci S.p.A.</p>
+        <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Cookies</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay"></div>
+  <aside class="cart-drawer">
+    <div class="cart-header"><h3>Shopping Bag</h3><button class="cart-close" aria-label="Close">&times;</button></div>
+    <div class="cart-body"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>&#8377;0</strong></div>
+      <p class="cart-note">Shipping and taxes calculated at checkout.</p>
+      <button class="btn-checkout">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay">
+    <button class="search-close" aria-label="Close search">&times;</button>
+    <div class="search-form">
+      <input class="search-input" type="search" placeholder="Search Gucci..." autocomplete="off">
+      <button class="search-submit" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg></button>
+    </div>
+    <div class="search-results"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" role="status">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+    <span class="toast-msg"></span>
+    <button class="toast-close" aria-label="Close notification">&times;</button>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    // Render all beauty products
+    const beautyProducts = getProductsByCategories(['beauty', 'fragrances']);
+    renderProductGrid('productGrid', beautyProducts);
+    document.getElementById('resultCount').textContent = beautyProducts.length + ' Items';
+
+    // Sub-nav tab filtering
+    document.querySelectorAll('.beauty-subnav-link').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.beauty-subnav-link').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        const cards = document.querySelectorAll('#productGrid .product-card');
+        let count = 0;
+        cards.forEach(card => {
+          const subcat = card.dataset.cat;
+          const show = cat === 'all' || subcat.toLowerCase().includes(cat);
+          card.style.display = show ? '' : 'none';
+          if (show) count++;
+        });
+        document.getElementById('resultCount').textContent = count + ' Items';
+      });
+    });
+
+    // Category tile click → scroll to products + filter
+    document.querySelectorAll('.beauty-cat-tile').forEach(tile => {
+      tile.addEventListener('click', e => {
+        e.preventDefault();
+        const filter = tile.dataset.filter;
+        // Activate the matching subnav button
+        document.querySelectorAll('.beauty-subnav-link').forEach(btn => {
+          btn.classList.remove('active');
+          if (btn.dataset.cat === filter || (filter === 'all' && btn.dataset.cat === 'all')) {
+            btn.classList.add('active');
+            btn.click();
+          }
+        });
+        // Smooth scroll to products
+        document.getElementById('beautyProducts').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

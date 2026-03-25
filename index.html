@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUCCI Official Site</title>
+  <meta name="description" content="Explore the latest from Gucci. Luxury handbags, ready-to-wear, shoes and accessories.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Header — transparent overlay on hero, becomes solid on scroll -->
+  <header class="site-header site-header--transparent">
+    <nav class="nav-main">
+      <div class="nav-links"><a href="contact.html">Contact Us</a></div>
+      <div class="nav-logo"><a href="index.html">GUCCI</a></div>
+      <div class="nav-icons">
+        <button class="nav-icon-btn" data-action="open-cart" aria-label="Shopping bag">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge">0</span>
+        </button>
+        <button class="nav-icon-btn" data-action="open-search" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+        </button>
+        <button class="nav-menu-btn" data-action="open-mobile-nav" aria-label="Menu">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO — Full viewport campaign video, muted autoplay loop -->
+    <section class="hero">
+      <div class="hero-video">
+        <video autoplay muted loop playsinline id="heroVideo">
+          <source src="Gucci_Hero_Section_Video_Generation.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-scroll-indicator">
+        <span>Scroll to Discover More</span>
+        <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+      </div>
+    </section>
+
+    <!-- CATEGORY GRID — 4 columns on dark background -->
+    <section class="category-grid">
+      <a href="handbag.html" class="category-card">
+        <div class="category-card-image">
+          <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=480&q=85&fit=crop" alt="Women's Handbags" loading="lazy">
+        </div>
+        <p class="category-card-label">Women's Handbags</p>
+      </a>
+      <a href="women.html?cat=women_shoes" class="category-card">
+        <div class="category-card-image">
+          <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=480&q=85&fit=crop" alt="Women's Shoes" loading="lazy">
+        </div>
+        <p class="category-card-label">Women's Shoes</p>
+      </a>
+      <a href="men.html?cat=men_shoes" class="category-card">
+        <div class="category-card-image">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=480&q=85&fit=crop" alt="Men's Sneakers" loading="lazy">
+        </div>
+        <p class="category-card-label">Men's Shoes</p>
+      </a>
+      <a href="men.html?cat=men_bags" class="category-card">
+        <div class="category-card-image">
+          <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=480&q=85&fit=crop" alt="Men's Bags" loading="lazy">
+        </div>
+        <p class="category-card-label">Men's Bags</p>
+      </a>
+    </section>
+
+    <!-- CAMPAIGN IMAGE — Full-width editorial -->
+    <section class="campaign-full">
+      <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1920&q=90&fit=crop" alt="Gucci Campaign" loading="lazy">
+    </section>
+
+    <!-- SERVICE CARDS — Two-column -->
+    <section class="service-cards">
+      <div class="service-card">
+        <div class="service-card-image">
+          <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=960&q=85&fit=crop" alt="Book an Appointment" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <h3 class="service-card-title">Book an Appointment</h3>
+          <p class="service-card-desc">Enjoy priority access to the boutique of your choice at the time and date that suits you. When you arrive, your Client Advisor will guide you through a hand-picked selection of pieces for you to try-on and style.</p>
+          <a href="stores.html" class="service-card-link">Book an In Store Appointment</a>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-image">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=960&q=85&fit=crop" alt="Personalization" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <h3 class="service-card-title">Personalization</h3>
+          <p class="service-card-desc">Emboss select items with your initials to create a truly unique present.</p>
+          <a href="gifts.html" class="service-card-link">Discover The Gift Collection</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BESTSELLERS — Curated mix from all categories -->
+    <section class="index-bestsellers" style="background:var(--white);padding:64px 0 48px">
+      <h2 style="font-family:var(--font-serif);font-size:clamp(1.2rem,2vw,1.6rem);font-weight:400;text-transform:uppercase;letter-spacing:0.06em;text-align:center;color:var(--black);margin-bottom:32px">Bestsellers</h2>
+      <div class="index-bestsellers-grid" id="homeBestsellers"></div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <!-- Store Locator -->
+      <div class="footer-store-locator-section">
+        <h5 class="footer-section-label">Store Locator</h5>
+        <div class="footer-store-input-wrap">
+          <input type="text" placeholder="Country/Region, City" readonly onclick="window.location='stores.html'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+
+      <!-- Sign Up for Gucci Updates -->
+      <div class="footer-signup-section">
+        <h5 class="footer-section-label">Sign Up for Gucci Updates</h5>
+        <p class="footer-signup-desc">By entering your email address below, you consent to receiving our newsletter with access to our latest collections, events and initiatives.</p>
+        <div class="footer-email-wrap">
+          <input type="email" placeholder="Email Address">
+        </div>
+      </div>
+
+      <!-- Accordion Sections -->
+      <div class="footer-accordion">
+        <div class="footer-accordion-item">
+          <button class="footer-accordion-trigger" aria-expanded="true">
+            <span>May We Help You?</span>
+            <svg class="footer-accordion-icon" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+          </button>
+          <div class="footer-accordion-content" style="max-height:300px">
+            <ul>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="#">My Order</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Email Unsubscribe</a></li>
+              <li><a href="#">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-accordion-item">
+          <button class="footer-accordion-trigger" aria-expanded="false">
+            <span>The Company</span>
+            <svg class="footer-accordion-icon" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+          </button>
+          <div class="footer-accordion-content">
+            <ul>
+              <li><a href="about.html">About Gucci</a></li>
+              <li><a href="#">Gucci Equilibrium</a></li>
+              <li><a href="#">Code of Ethics</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Legal</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+              <li><a href="#">Corporate Information</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-accordion-item">
+          <button class="footer-accordion-trigger" aria-expanded="false">
+            <span>Gucci Services</span>
+            <svg class="footer-accordion-icon" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+          </button>
+          <div class="footer-accordion-content">
+            <ul>
+              <li><a href="#">Discover Our Services</a></li>
+              <li><a href="stores.html">Book an Appointment</a></li>
+              <li><a href="#">Collect in Store</a></li>
+              <li><a href="#">Packaging</a></li>
+              <li><a href="#">Product Care</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Country / Region -->
+      <div class="footer-country-section">
+        <h5 class="footer-section-label">Country/Region</h5>
+        <a href="#" class="footer-country-link">India</a>
+      </div>
+
+      <!-- Bottom logos & copyright -->
+      <div class="footer-bottom-logos">
+        <span class="footer-gg-icon">
+          <svg width="36" height="36" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" stroke="currentColor" stroke-width="2" fill="none"/><text x="50" y="58" text-anchor="middle" font-family="serif" font-size="28" fill="currentColor">GG</text></svg>
+        </span>
+      </div>
+
+      <div class="footer-copyright">
+        <p>&copy; 2016 - 2025 Guccio Gucci S.p.A. - All rights reserved.</p>
+      </div>
+
+      <!-- Large GUCCI wordmark -->
+      <div class="footer-wordmark">
+        <span>G&nbsp;&nbsp;U&nbsp;&nbsp;C&nbsp;&nbsp;C&nbsp;&nbsp;I</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay"></div>
+  <aside class="cart-drawer">
+    <div class="cart-header"><h3>Shopping Bag</h3><button class="cart-close" aria-label="Close">&times;</button></div>
+    <div class="cart-body"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>&#8377;0</strong></div>
+      <p class="cart-note">Shipping and taxes calculated at checkout.</p>
+      <button class="btn-checkout">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay">
+    <button class="search-close" aria-label="Close search">&times;</button>
+    <div class="search-form">
+      <input class="search-input" type="search" placeholder="Search..." autocomplete="off">
+      <button class="search-submit" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg></button>
+    </div>
+    <div class="search-results"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" role="status">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+    <span class="toast-msg"></span>
+    <button class="toast-close" aria-label="Close notification">&times;</button>
+  </div>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner">
+    <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="#">Learn more</a></p>
+    <div class="cookie-banner-actions">
+      <button class="btn btn-accept">Accept All</button>
+      <button class="btn btn-settings-cookie">Cookie Settings</button>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    // Curated bestsellers — one from each major category
+    if (typeof PRODUCTS !== 'undefined') {
+      const picks = [
+        PRODUCTS.women_bags[0],
+        PRODUCTS.women_bags[2],
+        PRODUCTS.men_bags[0],
+        PRODUCTS.women_bags[4]
+      ].filter(Boolean);
+      renderProductGrid('homeBestsellers', picks);
+    }
+  </script>
+</body>
+</html>

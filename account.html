@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account — GUCCI</title>
+  <meta name="description" content="Sign in or create your Gucci account. Enjoy order tracking, wishlists and exclusive access.">
+  <meta property="og:title" content="My Account — GUCCI">
+  <meta property="og:description" content="Sign in or create your Gucci account.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- ── ANNOUNCEMENT BAR ─────────────────────── -->
+  <!-- ── SITE HEADER ──────────────────────────── -->
+  <header class="site-header">
+    <nav class="nav-main">
+      <div class="nav-links"><a href="contact.html">Contact Us</a></div>
+      <div class="nav-logo"><a href="index.html">GUCCI</a></div>
+      <div class="nav-icons">
+        <button class="nav-icon-btn" data-action="open-cart" aria-label="Shopping bag">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge">0</span>
+        </button>
+        <button class="nav-icon-btn" data-action="open-search" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+        </button>
+        <button class="nav-menu-btn" data-action="open-mobile-nav" aria-label="Menu">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          MENU
+        </button>
+      </div>
+    </nav>
+
+  </header>
+
+  <!-- ── MAIN ──────────────────────────────────── -->
+  <main class="account-page">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span style="color:var(--black)">My Account</span>
+      </div>
+
+      <div class="account-container">
+
+        <!-- Section Title -->
+        <h1 class="section-title" style="text-align:center; margin-bottom:40px; font-family:var(--font-display);">My Account</h1>
+
+        <!-- Tabs -->
+        <div class="account-tabs">
+          <button class="account-tab active" data-target="loginForm">Sign In</button>
+          <button class="account-tab" data-target="registerForm">Register</button>
+        </div>
+
+        <!-- Sign In Form -->
+        <form id="loginForm" class="account-form active" onsubmit="return false;">
+          <div class="form-group">
+            <label for="loginEmail">Email Address</label>
+            <input type="email" id="loginEmail" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="rememberMe">
+            <label for="rememberMe" style="margin-bottom:0; text-transform:none; letter-spacing:normal; font-size:13px; color:var(--gray-600);">Remember me</label>
+          </div>
+          <button type="submit" class="btn-form-submit">Sign In</button>
+          <p class="form-link"><a href="#">Forgot password?</a></p>
+
+          <div class="form-divider">or</div>
+
+          <div class="social-login">
+            <button type="button" class="btn-social">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              Continue with Google
+            </button>
+            <button type="button" class="btn-social">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" fill="#000"/></svg>
+              Continue with Apple
+            </button>
+          </div>
+        </form>
+
+        <!-- Register Form -->
+        <form id="registerForm" class="account-form" onsubmit="return false;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="regFirstName">First Name</label>
+              <input type="text" id="regFirstName" placeholder="First name" required>
+            </div>
+            <div class="form-group">
+              <label for="regLastName">Last Name</label>
+              <input type="text" id="regLastName" placeholder="Last name" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="regEmail">Email Address</label>
+            <input type="email" id="regEmail" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="regPassword">Password</label>
+            <input type="password" id="regPassword" placeholder="Create a password" required>
+          </div>
+          <div class="form-group">
+            <label for="regConfirmPassword">Confirm Password</label>
+            <input type="password" id="regConfirmPassword" placeholder="Confirm your password" required>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="agreeTerms" required>
+            <label for="agreeTerms" style="margin-bottom:0; text-transform:none; letter-spacing:normal; font-size:13px; color:var(--gray-600);">I agree to the <a href="#" style="text-decoration:underline; color:var(--black);">Terms of Use</a> and <a href="#" style="text-decoration:underline; color:var(--black);">Privacy Policy</a></label>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="newsletter">
+            <label for="newsletter" style="margin-bottom:0; text-transform:none; letter-spacing:normal; font-size:13px; color:var(--gray-600);">Subscribe to newsletter for exclusive offers and updates</label>
+          </div>
+          <button type="submit" class="btn-form-submit">Create Account</button>
+        </form>
+
+        <!-- Account Benefits -->
+        <div class="account-benefits">
+          <h3>Benefits of Your Account</h3>
+          <div class="benefits-grid">
+            <div class="benefit-item">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <h4>Order Tracking</h4>
+              <p>Track your orders in real time from dispatch to delivery.</p>
+            </div>
+            <div class="benefit-item">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <h4>Wishlist</h4>
+              <p>Save your favourite pieces and shop them whenever you wish.</p>
+            </div>
+            <div class="benefit-item">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <h4>Exclusive Access</h4>
+              <p>Be the first to discover new collections and limited editions.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>May We Help You?</h5>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">My Order</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Email Unsubscribe</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>The Company</h5>
+          <ul>
+            <li><a href="about.html">About Gucci</a></li>
+            <li><a href="#">Gucci Equilibrium</a></li>
+            <li><a href="#">Code of Ethics</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Legal</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Cookie Settings</a></li>
+            <li><a href="#">Corporate Information</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Store Locator</h5>
+          <div class="footer-store-locator">
+            <input type="text" placeholder="Country/Region, City" readonly onclick="window.location='stores.html'">
+          </div>
+          <div class="footer-email-signup" style="margin-top:32px">
+            <h5>Sign Up for Gucci Updates</h5>
+            <p>By entering your email address below, you consent to receiving our newsletter with access to our latest collections, events and initiatives.</p>
+            <input type="email" placeholder="Email">
+          </div>
+          <div class="footer-country">
+            <h5>Country/Region</h5>
+            <a href="#">India</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-services">
+        <h5>Gucci Services</h5>
+        <div class="footer-services-links">
+          <a href="#">Discover Our Services</a>
+          <a href="stores.html">Book an Appointment</a>
+          <a href="#">Collect in Store</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Guccio Gucci S.p.A.</p>
+        <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Cookies</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay"></div>
+  <aside class="cart-drawer">
+    <div class="cart-header"><h3>Shopping Bag</h3><button class="cart-close" aria-label="Close">×</button></div>
+    <div class="cart-body"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>₹0</strong></div>
+      <p class="cart-note">Shipping and taxes calculated at checkout.</p>
+      <button class="btn-checkout">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay">
+    <button class="search-close" aria-label="Close search">×</button>
+    <div class="search-form">
+      <input class="search-input" type="search" placeholder="Search Gucci..." autocomplete="off">
+      <button class="search-submit" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg></button>
+    </div>
+    <div class="search-results"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" role="status">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+    <span class="toast-msg"></span>
+    <button class="toast-close" aria-label="Close notification">×</button>
+  </div>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    // Tab switching
+    document.querySelectorAll('.account-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.account-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.account-form').forEach(f => f.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

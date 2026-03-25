@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — GUCCI</title>
+  <meta name="description" content="Complete your Gucci purchase. Secure checkout with free shipping on all orders.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+  /* ── CHECKOUT PAGE STYLES ────────────────────────── */
+  .ck-page { padding: 40px 0 100px; }
+
+  /* Progress bar */
+  .ck-progress { display:flex; align-items:center; justify-content:center; gap:0; margin-bottom:48px; padding:0 24px; }
+  .ck-step { display:flex; align-items:center; gap:12px; cursor:default; }
+  .ck-step-num { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-ui); font-size:12px; font-weight:600; border:2px solid var(--gray-200); color:var(--gray-400); background:var(--white); transition:all 0.3s ease; flex-shrink:0; }
+  .ck-step-label { font-family:var(--font-ui); font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--gray-400); transition:color 0.3s ease; }
+  .ck-step.completed .ck-step-num { background:var(--black); border-color:var(--black); color:var(--white); }
+  .ck-step.completed .ck-step-label { color:var(--black); }
+  .ck-step.active .ck-step-num { border-color:var(--black); color:var(--black); }
+  .ck-step.active .ck-step-label { color:var(--black); }
+  .ck-connector { width:60px; height:2px; background:var(--gray-200); margin:0 16px; flex-shrink:0; transition:background 0.3s ease; }
+  .ck-connector.done { background:var(--black); }
+
+  /* Layout */
+  .ck-layout { display:grid; grid-template-columns:1fr 380px; gap:60px; align-items:start; }
+
+  /* Steps */
+  .ck-panel { display:none; }
+  .ck-panel.active { display:block; }
+  .ck-panel-title { font-family:var(--font-display); font-size:28px; font-weight:400; letter-spacing:0.04em; margin-bottom:32px; }
+
+  /* Bag review items */
+  .ck-item { display:flex; gap:20px; padding:24px 0; border-bottom:1px solid var(--gray-100); }
+  .ck-item-img { width:100px; height:120px; object-fit:cover; flex-shrink:0; background:var(--cream); }
+  .ck-item-info { flex:1; display:flex; flex-direction:column; gap:4px; }
+  .ck-item-name { font-family:var(--font-display); font-size:17px; font-weight:400; }
+  .ck-item-detail { font-size:12px; color:var(--gray-400); letter-spacing:0.04em; }
+  .ck-item-bottom { display:flex; justify-content:space-between; align-items:center; margin-top:auto; padding-top:8px; }
+  .ck-item-price { font-size:14px; font-weight:500; }
+  .ck-item-remove { background:none; border:none; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--gray-400); cursor:pointer; text-decoration:underline; transition:color var(--transition); }
+  .ck-item-remove:hover { color:var(--black); }
+  .ck-qty { display:flex; align-items:center; gap:0; border:1px solid var(--gray-200); }
+  .ck-qty button { width:32px; height:32px; background:none; border:none; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--black); transition:background var(--transition); }
+  .ck-qty button:hover { background:var(--gray-100); }
+  .ck-qty span { width:32px; text-align:center; font-size:13px; font-weight:500; }
+
+  .ck-empty { text-align:center; padding:60px 0; }
+  .ck-empty p { font-family:var(--font-display); font-size:22px; font-style:italic; color:var(--gray-400); margin-bottom:24px; }
+
+  /* Forms */
+  .ck-form { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .ck-field { display:flex; flex-direction:column; gap:6px; }
+  .ck-field.full { grid-column:1/-1; }
+  .ck-label { font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--gray-400); }
+  .ck-input { padding:12px 16px; border:1px solid var(--gray-200); font-family:var(--font-ui); font-size:14px; color:var(--black); background:var(--white); transition:border-color var(--transition); outline:none; }
+  .ck-input:focus { border-color:var(--black); }
+  .ck-input.error { border-color:#8B1A1A; }
+  .ck-input::placeholder { color:var(--gray-300); }
+  select.ck-input { appearance:none; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; background-size:12px; padding-right:36px; }
+
+  /* Delivery options */
+  .ck-delivery-title { font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--gray-400); margin:32px 0 12px; }
+  .ck-delivery-options { display:flex; flex-direction:column; gap:12px; }
+  .ck-delivery-card { display:flex; align-items:center; gap:16px; padding:16px 20px; border:1px solid var(--gray-200); cursor:pointer; transition:border-color var(--transition); }
+  .ck-delivery-card:hover { border-color:var(--gray-400); }
+  .ck-delivery-card.selected { border-color:var(--black); }
+  .ck-delivery-radio { width:18px; height:18px; border-radius:50%; border:2px solid var(--gray-300); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:border-color var(--transition); }
+  .ck-delivery-card.selected .ck-delivery-radio { border-color:var(--black); }
+  .ck-delivery-card.selected .ck-delivery-radio::after { content:''; width:10px; height:10px; border-radius:50%; background:var(--black); }
+  .ck-delivery-text { flex:1; }
+  .ck-delivery-name { font-size:13px; font-weight:500; }
+  .ck-delivery-desc { font-size:12px; color:var(--gray-400); margin-top:2px; }
+  .ck-delivery-price { font-size:13px; font-weight:600; flex-shrink:0; }
+
+  /* Payment card form */
+  .ck-card-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .ck-save-card { display:flex; align-items:center; gap:10px; margin-top:24px; cursor:pointer; }
+  .ck-save-card input[type="checkbox"] { width:18px; height:18px; accent-color:var(--black); }
+  .ck-save-card span { font-size:13px; color:var(--gray-600); }
+
+  /* Buttons */
+  .ck-btn { display:block; width:100%; padding:16px; background:var(--black); color:var(--white); font-family:var(--font-ui); font-size:12px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; border:none; cursor:pointer; text-align:center; margin-top:32px; transition:opacity var(--transition); }
+  .ck-btn:hover { opacity:0.85; }
+  .ck-btn-outline { background:var(--white); color:var(--black); border:1px solid var(--black); }
+  .ck-btn-outline:hover { background:var(--black); color:var(--white); opacity:1; }
+
+  /* Order Summary sidebar */
+  .ck-summary { position:sticky; top:calc(var(--total-header) + 24px); background:var(--cream); padding:32px; }
+  .ck-summary-title { font-family:var(--font-display); font-size:22px; font-weight:400; margin-bottom:24px; }
+  .ck-summary-items { max-height:300px; overflow-y:auto; margin-bottom:20px; }
+  .ck-sum-item { display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--cream-dark); }
+  .ck-sum-img { width:56px; height:68px; object-fit:cover; flex-shrink:0; }
+  .ck-sum-info { flex:1; }
+  .ck-sum-name { font-size:13px; font-weight:400; line-height:1.3; }
+  .ck-sum-detail { font-size:11px; color:var(--gray-400); margin-top:2px; }
+  .ck-sum-price { font-size:13px; font-weight:500; flex-shrink:0; }
+  .ck-summary-line { display:flex; justify-content:space-between; padding:8px 0; font-size:13px; }
+  .ck-summary-line.total { border-top:1px solid var(--cream-dark); padding-top:16px; margin-top:8px; font-size:16px; font-weight:600; font-family:var(--font-display); letter-spacing:0.04em; }
+
+  /* Confirmation */
+  .ck-confirm { text-align:center; padding:60px 0; }
+  .ck-confirm-icon { width:64px; height:64px; border-radius:50%; background:var(--black); color:var(--white); display:inline-flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:24px; }
+  .ck-confirm h2 { font-family:var(--font-display); font-size:32px; font-weight:400; margin-bottom:12px; }
+  .ck-confirm p { font-size:14px; color:var(--gray-600); margin-bottom:6px; line-height:1.6; }
+  .ck-confirm .ck-order-num { font-size:18px; font-weight:600; font-family:var(--font-ui); letter-spacing:0.08em; color:var(--black); margin:16px 0; }
+  .ck-confirm .ck-btn { max-width:300px; margin:32px auto 0; display:block; text-decoration:none; text-align:center; line-height:1; padding:18px; }
+
+  /* Responsive */
+  @media (max-width:900px) {
+    .ck-layout { grid-template-columns:1fr; }
+    .ck-summary { position:static; order:-1; }
+    .ck-connector { width:32px; margin:0 8px; }
+    .ck-step-label { font-size:9px; letter-spacing:0.08em; }
+  }
+  @media (max-width:600px) {
+    .ck-form { grid-template-columns:1fr; }
+    .ck-card-row { grid-template-columns:1fr; }
+    .ck-progress { gap:0; }
+    .ck-step-label { display:none; }
+    .ck-connector { width:40px; }
+    .ck-item-img { width:72px; height:88px; }
+  }
+  </style>
+</head>
+<body>
+
+
+  <!-- ── SITE HEADER ──────────────────────────── -->
+  <header class="site-header">
+    <nav class="nav-main">
+      <div class="nav-links"><a href="contact.html">Contact Us</a></div>
+      <div class="nav-logo"><a href="index.html">GUCCI</a></div>
+      <div class="nav-icons">
+        <button class="nav-icon-btn" data-action="open-cart" aria-label="Shopping bag">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge">0</span>
+        </button>
+        <button class="nav-icon-btn" data-action="open-search" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+        </button>
+        <button class="nav-menu-btn" data-action="open-mobile-nav" aria-label="Menu">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          MENU
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ── CHECKOUT CONTENT ─────────────────────── -->
+  <main class="ck-page container">
+
+    <!-- Progress Bar -->
+    <div class="ck-progress">
+      <div class="ck-step active" data-step="1">
+        <div class="ck-step-num">1</div>
+        <span class="ck-step-label">Bag Review</span>
+      </div>
+      <div class="ck-connector" data-conn="1"></div>
+      <div class="ck-step" data-step="2">
+        <div class="ck-step-num">2</div>
+        <span class="ck-step-label">Shipping</span>
+      </div>
+      <div class="ck-connector" data-conn="2"></div>
+      <div class="ck-step" data-step="3">
+        <div class="ck-step-num">3</div>
+        <span class="ck-step-label">Payment</span>
+      </div>
+    </div>
+
+    <div class="ck-layout">
+      <!-- LEFT COLUMN — Steps -->
+      <div class="ck-steps-col">
+
+        <!-- Step 1: Bag Review -->
+        <div class="ck-panel active" id="ckStep1">
+          <h2 class="ck-panel-title">Your Bag</h2>
+          <div id="ckBagItems"></div>
+          <button class="ck-btn" id="ckToShipping" style="display:none;">Proceed to Shipping</button>
+        </div>
+
+        <!-- Step 2: Shipping -->
+        <div class="ck-panel" id="ckStep2">
+          <h2 class="ck-panel-title">Shipping Details</h2>
+          <form class="ck-form" id="ckShippingForm" novalidate>
+            <div class="ck-field"><label class="ck-label">Full Name *</label><input class="ck-input" id="ckName" type="text" placeholder="First and Last Name" required></div>
+            <div class="ck-field"><label class="ck-label">Email Address *</label><input class="ck-input" id="ckEmail" type="email" placeholder="you@example.com" required></div>
+            <div class="ck-field"><label class="ck-label">Phone *</label><input class="ck-input" id="ckPhone" type="tel" placeholder="+1 234 567 8900" required></div>
+            <div class="ck-field"><label class="ck-label">Country *</label>
+              <select class="ck-input" id="ckCountry" required>
+                <option value="">Select country</option>
+                <option>United States</option><option>United Kingdom</option><option>France</option><option>Germany</option><option>Italy</option>
+                <option>Spain</option><option>Japan</option><option>China</option><option>South Korea</option><option>Australia</option>
+                <option>Canada</option><option>Brazil</option><option>India</option><option>Switzerland</option><option>Netherlands</option>
+                <option>Sweden</option><option>Singapore</option><option>United Arab Emirates</option><option>Mexico</option><option>Russia</option>
+              </select>
+            </div>
+            <div class="ck-field full"><label class="ck-label">Address Line 1 *</label><input class="ck-input" id="ckAddr1" type="text" placeholder="Street address" required></div>
+            <div class="ck-field full"><label class="ck-label">Address Line 2</label><input class="ck-input" id="ckAddr2" type="text" placeholder="Apt, suite, unit (optional)"></div>
+            <div class="ck-field"><label class="ck-label">City *</label><input class="ck-input" id="ckCity" type="text" placeholder="City" required></div>
+            <div class="ck-field"><label class="ck-label">Postal Code *</label><input class="ck-input" id="ckPostal" type="text" placeholder="12345" required></div>
+          </form>
+          <p class="ck-delivery-title">Delivery Method</p>
+          <div class="ck-delivery-options">
+            <div class="ck-delivery-card selected" data-delivery="standard" onclick="selectDelivery(this)">
+              <div class="ck-delivery-radio"></div>
+              <div class="ck-delivery-text"><div class="ck-delivery-name">Standard Delivery</div><div class="ck-delivery-desc">3–5 business days</div></div>
+              <div class="ck-delivery-price">Free</div>
+            </div>
+            <div class="ck-delivery-card" data-delivery="express" onclick="selectDelivery(this)">
+              <div class="ck-delivery-radio"></div>
+              <div class="ck-delivery-text"><div class="ck-delivery-name">Express Delivery</div><div class="ck-delivery-desc">1–2 business days</div></div>
+              <div class="ck-delivery-price">₹500</div>
+            </div>
+          </div>
+          <button class="ck-btn" onclick="goToPayment()">Continue to Payment</button>
+        </div>
+
+        <!-- Step 3: Payment -->
+        <div class="ck-panel" id="ckStep3">
+          <h2 class="ck-panel-title">Payment</h2>
+          <form id="ckPaymentForm" novalidate>
+            <div class="ck-field" style="margin-bottom:20px;">
+              <label class="ck-label">Card Number *</label>
+              <input class="ck-input" id="ckCardNum" type="text" placeholder="1234 5678 9012 3456" maxlength="19" required>
+            </div>
+            <div class="ck-field" style="margin-bottom:20px;">
+              <label class="ck-label">Name on Card *</label>
+              <input class="ck-input" id="ckCardName" type="text" placeholder="As shown on card" required>
+            </div>
+            <div class="ck-card-row" style="margin-bottom:20px;">
+              <div class="ck-field">
+                <label class="ck-label">Expiry (MM/YY) *</label>
+                <input class="ck-input" id="ckExpiry" type="text" placeholder="MM/YY" maxlength="5" required>
+              </div>
+              <div class="ck-field">
+                <label class="ck-label">CVV *</label>
+                <input class="ck-input" id="ckCvv" type="password" placeholder="•••" maxlength="3" required>
+              </div>
+            </div>
+            <label class="ck-save-card">
+              <input type="checkbox">
+              <span>Save card for future purchases</span>
+            </label>
+          </form>
+          <button class="ck-btn" onclick="placeOrder()">Place Order</button>
+        </div>
+
+        <!-- Confirmation -->
+        <div class="ck-panel" id="ckConfirm">
+          <div class="ck-confirm">
+            <div class="ck-confirm-icon">✓</div>
+            <h2>Thank You for Your Order</h2>
+            <p>Your order has been placed successfully.</p>
+            <div class="ck-order-num" id="ckOrderNum"></div>
+            <p id="ckDeliveryDate"></p>
+            <a href="index.html" class="ck-btn">Continue Shopping</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN — Order Summary -->
+      <div class="ck-summary" id="ckSummary">
+        <h3 class="ck-summary-title">Order Summary</h3>
+        <div class="ck-summary-items" id="ckSumItems"></div>
+        <div class="ck-summary-line"><span>Subtotal</span><span id="ckSubtotal">₹0</span></div>
+        <div class="ck-summary-line"><span>Shipping</span><span id="ckShipCost">Free</span></div>
+        <div class="ck-summary-line total"><span>Total</span><span id="ckTotal">₹0</span></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ──────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>May We Help You?</h5>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">My Order</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Email Unsubscribe</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>The Company</h5>
+          <ul>
+            <li><a href="about.html">About Gucci</a></li>
+            <li><a href="#">Gucci Equilibrium</a></li>
+            <li><a href="#">Code of Ethics</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Legal</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Cookie Settings</a></li>
+            <li><a href="#">Corporate Information</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Store Locator</h5>
+          <div class="footer-store-locator">
+            <input type="text" placeholder="Country/Region, City" readonly onclick="window.location='stores.html'">
+          </div>
+          <div class="footer-email-signup" style="margin-top:32px">
+            <h5>Sign Up for Gucci Updates</h5>
+            <p>By entering your email address below, you consent to receiving our newsletter with access to our latest collections, events and initiatives.</p>
+            <input type="email" placeholder="Email">
+          </div>
+          <div class="footer-country">
+            <h5>Country/Region</h5>
+            <a href="#">India</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-services">
+        <h5>Gucci Services</h5>
+        <div class="footer-services-links">
+          <a href="#">Discover Our Services</a>
+          <a href="stores.html">Book an Appointment</a>
+          <a href="#">Collect in Store</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Guccio Gucci S.p.A.</p>
+        <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Cookies</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer (reuse from shared) -->
+  <div class="cart-overlay"></div>
+  <aside class="cart-drawer">
+    <div class="cart-header"><h3>Shopping Bag</h3><button class="cart-close">×</button></div>
+    <div class="cart-body"></div>
+    <div class="cart-footer"><div class="cart-subtotal"><span>Subtotal</span><strong>₹0</strong></div><a href="checkout.html" class="btn btn-primary" style="width:100%;text-align:center;">Proceed to Checkout</a></div>
+  </aside>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay">
+    <button class="search-close">×</button>
+    <div class="search-form">
+      <input class="search-input" type="search" placeholder="Search Gucci..." autocomplete="off">
+      <button class="search-submit" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg></button>
+    </div>
+    <div class="search-results"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" role="status" aria-live="polite">
+    <span class="toast-msg"></span>
+    <button class="toast-close">×</button>
+  </div>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner">
+    <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="#">Learn more</a></p>
+    <div class="cookie-banner-actions">
+      <button class="btn btn-accept">Accept All</button>
+      <button class="btn btn-settings-cookie">Cookie Settings</button>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+  /* ================================================
+     CHECKOUT PAGE — LOGIC
+     ================================================ */
+  let ckCurrentStep = 1;
+  let ckDeliveryType = 'standard';
+
+  function ckGetCart() {
+    return JSON.parse(localStorage.getItem('gucciCart') || '[]');
+  }
+  function ckSaveCart(cart) {
+    localStorage.setItem('gucciCart', JSON.stringify(cart));
+    // Sync with main.js state
+    if (typeof state !== 'undefined') {
+      state.cart = cart;
+    }
+  }
+
+  // ── Render bag items ─────────────────────────
+  function ckRenderBag() {
+    const cart = ckGetCart();
+    const container = document.getElementById('ckBagItems');
+    const proceedBtn = document.getElementById('ckToShipping');
+
+    if (cart.length === 0) {
+      container.innerHTML = `
+        <div class="ck-empty">
+          <p>Your bag is empty</p>
+          <a href="index.html" class="ck-btn ck-btn-outline" style="max-width:260px;margin:0 auto;display:block;text-decoration:none;text-align:center;">Explore Collection</a>
+        </div>`;
+      proceedBtn.style.display = 'none';
+    } else {
+      container.innerHTML = cart.map((item, i) => `
+        <div class="ck-item">
+          <img class="ck-item-img" src="${item.image}" alt="${item.name}">
+          <div class="ck-item-info">
+            <div class="ck-item-name">${item.name}</div>
+            <div class="ck-item-detail">Size: ${item.size} &nbsp;·&nbsp; Color: ${item.color || 'Black'}</div>
+            <div class="ck-item-bottom">
+              <div class="ck-qty">
+                <button onclick="ckChangeQty(${i}, -1)">−</button>
+                <span>${item.qty}</span>
+                <button onclick="ckChangeQty(${i}, 1)">+</button>
+              </div>
+              <div class="ck-item-price">₹${(item.price * item.qty).toLocaleString('en-IN')}</div>
+            </div>
+            <button class="ck-item-remove" onclick="ckRemove(${i})">Remove</button>
+          </div>
+        </div>
+      `).join('');
+      proceedBtn.style.display = '';
+    }
+    ckRenderSummary();
+    updateCartBadge();
+  }
+
+  function ckChangeQty(index, delta) {
+    const cart = ckGetCart();
+    if (!cart[index]) return;
+    cart[index].qty = Math.max(1, cart[index].qty + delta);
+    ckSaveCart(cart);
+    ckRenderBag();
+  }
+
+  function ckRemove(index) {
+    const cart = ckGetCart();
+    cart.splice(index, 1);
+    ckSaveCart(cart);
+    ckRenderBag();
+  }
+
+  // ── Order summary ────────────────────────────
+  function ckRenderSummary() {
+    const cart = ckGetCart();
+    const items = document.getElementById('ckSumItems');
+    const subtotalEl = document.getElementById('ckSubtotal');
+    const shipEl = document.getElementById('ckShipCost');
+    const totalEl = document.getElementById('ckTotal');
+
+    items.innerHTML = cart.map(item => `
+      <div class="ck-sum-item">
+        <img class="ck-sum-img" src="${item.image}" alt="${item.name}">
+        <div class="ck-sum-info">
+          <div class="ck-sum-name">${item.name}</div>
+          <div class="ck-sum-detail">${item.size} · Qty: ${item.qty}</div>
+        </div>
+        <div class="ck-sum-price">₹${(item.price * item.qty).toLocaleString('en-IN')}</div>
+      </div>
+    `).join('');
+
+    const subtotal = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+    const shipping = ckDeliveryType === 'express' ? 500 : 0;
+    subtotalEl.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+    shipEl.textContent = shipping > 0 ? `₹${shipping}` : 'Free';
+    totalEl.textContent = `₹${(subtotal + shipping).toLocaleString('en-IN')}`;
+  }
+
+  // ── Step navigation ──────────────────────────
+  function ckGoTo(step) {
+    ckCurrentStep = step;
+    document.querySelectorAll('.ck-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.ck-step').forEach(s => {
+      const n = parseInt(s.dataset.step);
+      s.classList.remove('active', 'completed');
+      if (n < step) s.classList.add('completed');
+      if (n === step) s.classList.add('active');
+    });
+    document.querySelectorAll('.ck-connector').forEach(c => {
+      const n = parseInt(c.dataset.conn);
+      c.classList.toggle('done', n < step);
+    });
+
+    const panelIds = ['ckStep1','ckStep2','ckStep3','ckConfirm'];
+    const el = document.getElementById(panelIds[step - 1]);
+    if (el) el.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Delivery selection ───────────────────────
+  function selectDelivery(card) {
+    document.querySelectorAll('.ck-delivery-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    ckDeliveryType = card.dataset.delivery;
+    ckRenderSummary();
+  }
+
+  // ── Step 1 → 2 ──────────────────────────────
+  document.getElementById('ckToShipping').addEventListener('click', () => {
+    ckGoTo(2);
+  });
+
+  // ── Step 2 → 3 ──────────────────────────────
+  function goToPayment() {
+    const form = document.getElementById('ckShippingForm');
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(inp => {
+      inp.classList.remove('error');
+      if (!inp.value.trim()) {
+        inp.classList.add('error');
+        valid = false;
+      }
+    });
+    // Basic email check
+    const email = document.getElementById('ckEmail');
+    if (email.value && !email.value.includes('@')) {
+      email.classList.add('error');
+      valid = false;
+    }
+    if (!valid) return;
+    ckGoTo(3);
+  }
+
+  // ── Card number formatting ──────────────────
+  document.getElementById('ckCardNum').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g, '').substring(0, 16);
+    this.value = v.replace(/(\d{4})(?=\d)/g, '$1 ');
+  });
+
+  // ── Expiry formatting ──────────────────────
+  document.getElementById('ckExpiry').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g, '').substring(0, 4);
+    if (v.length > 2) v = v.substring(0,2) + '/' + v.substring(2);
+    this.value = v;
+  });
+
+  // ── CVV — digits only ─────────────────────
+  document.getElementById('ckCvv').addEventListener('input', function() {
+    this.value = this.value.replace(/\D/g, '').substring(0, 3);
+  });
+
+  // ── Place Order ────────────────────────────
+  function placeOrder() {
+    const num = document.getElementById('ckCardNum');
+    const name = document.getElementById('ckCardName');
+    const exp = document.getElementById('ckExpiry');
+    const cvv = document.getElementById('ckCvv');
+    let valid = true;
+
+    [num, name, exp, cvv].forEach(f => f.classList.remove('error'));
+
+    if (num.value.replace(/\s/g, '').length < 16) { num.classList.add('error'); valid = false; }
+    if (!name.value.trim()) { name.classList.add('error'); valid = false; }
+    if (!/^\d{2}\/\d{2}$/.test(exp.value)) { exp.classList.add('error'); valid = false; }
+    if (cvv.value.length < 3) { cvv.classList.add('error'); valid = false; }
+    if (!valid) return;
+
+    // Generate order number
+    const orderNum = 'GU' + Math.random().toString().substring(2, 10);
+    document.getElementById('ckOrderNum').textContent = `Order #${orderNum}`;
+
+    // Estimated delivery (today + 4 days)
+    const delivery = new Date();
+    delivery.setDate(delivery.getDate() + (ckDeliveryType === 'express' ? 2 : 4));
+    const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('ckDeliveryDate').textContent = `Estimated delivery: ${delivery.toLocaleDateString('en-US', opts)}`;
+
+    // Clear cart
+    localStorage.removeItem('gucciCart');
+    if (typeof state !== 'undefined') state.cart = [];
+    updateCartBadge();
+
+    // Hide summary
+    document.getElementById('ckSummary').style.display = 'none';
+
+    // Show confirmation (step 4)
+    ckCurrentStep = 4;
+    document.querySelectorAll('.ck-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.ck-step').forEach(s => s.classList.add('completed'));
+    document.querySelectorAll('.ck-connector').forEach(c => c.classList.add('done'));
+    document.getElementById('ckConfirm').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Init ──────────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    ckRenderBag();
+  });
+  </script>
+</body>
+</html>

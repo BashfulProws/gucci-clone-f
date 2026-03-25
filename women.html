@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Women — GUCCI</title>
+  <meta name="description" content="Shop Gucci's women's collection. Discover luxury handbags, shoes, ready-to-wear and accessories.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/catalogue.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="nav-main">
+      <div class="nav-links"><a href="contact.html">Contact Us</a></div>
+      <div class="nav-logo"><a href="index.html">GUCCI</a></div>
+      <div class="nav-icons">
+        <button class="nav-icon-btn" data-action="open-cart" aria-label="Shopping bag">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge">0</span>
+        </button>
+        <button class="nav-icon-btn" data-action="open-search" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+        </button>
+        <button class="nav-menu-btn" data-action="open-mobile-nav" aria-label="Menu">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          MENU
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="cat-breadcrumb">
+    <a href="index.html">Home</a>
+    <span>›</span>
+    <a href="women.html">Women</a>
+  </div>
+
+  <!-- Sub-Navigation Tabs -->
+  <nav class="cat-subnav">
+    <div class="cat-subnav-inner">
+      <a href="women.html" class="cat-subnav-link active">All</a>
+      <a href="#" class="cat-subnav-link" data-filter-cat="women_bags">Bags</a>
+      <a href="#" class="cat-subnav-link" data-filter-cat="women_rtw">Ready-to-Wear</a>
+      <a href="#" class="cat-subnav-link" data-filter-cat="women_shoes">Shoes</a>
+      <a href="#" class="cat-subnav-link" data-filter-cat="accessories">Accessories</a>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="cat-hero">
+    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1920&q=90&fit=crop" alt="Women's Collection" loading="eager">
+    <div class="cat-hero-overlay"></div>
+    <div class="cat-hero-content">
+      <h1>Women's Collection</h1>
+      <p>Discover luxury handbags, shoes, ready-to-wear and accessories.</p>
+    </div>
+  </section>
+
+  <!-- Toolbar -->
+  <div class="cat-toolbar">
+    <button class="cat-toolbar-btn" id="sortToggle">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+      <span>Sort By: <strong id="sortLabel">Recommended</strong></span>
+    </button>
+    <span class="cat-item-count" id="resultCount">24 Items</span>
+    <button class="cat-toolbar-btn" id="filterToggle">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+      <span>Filters</span>
+    </button>
+  </div>
+
+  <!-- Product Grid -->
+  <main class="cat-main">
+    <div class="cat-grid" id="productGrid"></div>
+  </main>
+
+  <!-- Sort Bottom Sheet -->
+  <div class="bottom-sheet-overlay" id="sortOverlay"></div>
+  <div class="bottom-sheet" id="sortSheet">
+    <button class="bottom-sheet-close" id="sortClose" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h3 class="bottom-sheet-title">Sort By</h3>
+    <div class="sort-options">
+      <label class="sort-option"><input type="radio" name="sort" value="featured" checked><span>Recommended</span></label>
+      <label class="sort-option"><input type="radio" name="sort" value="newest"><span>Newest</span></label>
+      <label class="sort-option"><input type="radio" name="sort" value="price-desc"><span>Price High to Low</span></label>
+      <label class="sort-option"><input type="radio" name="sort" value="price-asc"><span>Price Low to High</span></label>
+    </div>
+  </div>
+
+  <!-- Filter Bottom Sheet -->
+  <div class="bottom-sheet-overlay" id="filterOverlay"></div>
+  <div class="bottom-sheet" id="filterSheet">
+    <button class="bottom-sheet-close" id="filterClose" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h3 class="bottom-sheet-title">Filters</h3>
+    <div class="filter-section">
+      <h4 class="filter-section-title">Categories</h4>
+      <div class="filter-options">
+        <label class="filter-checkbox"><input type="checkbox" name="cat" value="women_bags" checked> <span>Handbags</span></label>
+        <label class="filter-checkbox"><input type="checkbox" name="cat" value="women_rtw" checked> <span>Ready-to-Wear</span></label>
+        <label class="filter-checkbox"><input type="checkbox" name="cat" value="women_shoes" checked> <span>Shoes</span></label>
+        <label class="filter-checkbox"><input type="checkbox" name="cat" value="accessories" checked> <span>Accessories</span></label>
+      </div>
+    </div>
+    <div class="filter-section">
+      <h4 class="filter-section-title">Price</h4>
+      <div class="price-range">
+        <input type="range" id="priceRange" min="0" max="800000" value="800000" step="10000" oninput="updatePriceRange(this.value)">
+        <div class="price-labels">
+          <span>&#8377;0</span>
+          <span id="priceLabel">&#8377;8,00,000</span>
+        </div>
+      </div>
+      <input type="hidden" id="priceMax" value="800000">
+    </div>
+    <button class="filter-apply-btn" onclick="applyFilters()">Show <span id="filterResultCount">24</span> Items</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>May We Help You?</h5>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">My Order</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Email Unsubscribe</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>The Company</h5>
+          <ul>
+            <li><a href="about.html">About Gucci</a></li>
+            <li><a href="#">Gucci Equilibrium</a></li>
+            <li><a href="#">Code of Ethics</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Legal</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Store Locator</h5>
+          <div class="footer-store-locator">
+            <input type="text" placeholder="Country/Region, City" readonly onclick="window.location='stores.html'">
+          </div>
+          <div class="footer-email-signup" style="margin-top:32px">
+            <h5>Sign Up for Gucci Updates</h5>
+            <p>By entering your email address below, you consent to receiving our newsletter.</p>
+            <input type="email" placeholder="Email">
+          </div>
+          <div class="footer-country">
+            <h5>Country/Region</h5>
+            <a href="#">India</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Guccio Gucci S.p.A.</p>
+        <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Cookies</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay"></div>
+  <aside class="cart-drawer">
+    <div class="cart-header"><h3>Shopping Bag</h3><button class="cart-close" aria-label="Close">&times;</button></div>
+    <div class="cart-body"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>&#8377;0</strong></div>
+      <p class="cart-note">Shipping and taxes calculated at checkout.</p>
+      <button class="btn-checkout">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay">
+    <button class="search-close" aria-label="Close search">&times;</button>
+    <div class="search-form">
+      <input class="search-input" type="search" placeholder="Search Gucci..." autocomplete="off">
+      <button class="search-submit" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg></button>
+    </div>
+    <div class="search-results"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" role="status">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+    <span class="toast-msg"></span>
+    <button class="toast-close" aria-label="Close notification">&times;</button>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    // Render products
+    let allWomen = getProductsByCategories(['women_bags','women_rtw','women_shoes','accessories']);
+    renderProductGrid('productGrid', allWomen);
+    document.getElementById('resultCount').textContent = allWomen.length + ' Items';
+
+    // Auto-filter from URL parameter (e.g. ?cat=women_bags)
+    const urlCat = new URLSearchParams(window.location.search).get('cat');
+    if (urlCat) {
+      const targetLink = document.querySelector(`.cat-subnav-link[data-filter-cat="${urlCat}"]`);
+      if (targetLink) {
+        document.querySelectorAll('.cat-subnav-link').forEach(l => l.classList.remove('active'));
+        targetLink.classList.add('active');
+        const cards = document.querySelectorAll('#productGrid .product-card');
+        let count = 0;
+        cards.forEach(card => {
+          const show = card.dataset.category === urlCat;
+          card.style.display = show ? '' : 'none';
+          if (show) count++;
+        });
+        document.getElementById('resultCount').textContent = count + ' Items';
+      }
+    }
+
+    // Sub-nav tab filtering
+    document.querySelectorAll('.cat-subnav-link[data-filter-cat]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelectorAll('.cat-subnav-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        const cat = link.dataset.filterCat;
+        const cards = document.querySelectorAll('#productGrid .product-card');
+        let count = 0;
+        cards.forEach(card => {
+          const show = card.dataset.category === cat;
+          card.style.display = show ? '' : 'none';
+          if (show) count++;
+        });
+        document.getElementById('resultCount').textContent = count + ' Items';
+      });
+    });
+    // "All" tab
+    document.querySelector('.cat-subnav-link:not([data-filter-cat])').addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('.cat-subnav-link').forEach(l => l.classList.remove('active'));
+      e.target.classList.add('active');
+      document.querySelectorAll('#productGrid .product-card').forEach(c => c.style.display = '');
+      document.getElementById('resultCount').textContent = allWomen.length + ' Items';
+    });
+
+    // Sort bottom sheet
+    const sortOverlay = document.getElementById('sortOverlay');
+    const sortSheet = document.getElementById('sortSheet');
+    document.getElementById('sortToggle').addEventListener('click', () => {
+      sortOverlay.classList.add('open');
+      sortSheet.classList.add('open');
+    });
+    function closeSort() {
+      sortOverlay.classList.remove('open');
+      sortSheet.classList.remove('open');
+    }
+    document.getElementById('sortClose').addEventListener('click', closeSort);
+    sortOverlay.addEventListener('click', closeSort);
+
+    document.querySelectorAll('input[name=sort]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        const val = radio.value;
+        const label = radio.closest('label').querySelector('span').textContent;
+        document.getElementById('sortLabel').textContent = label;
+        handleSort(val);
+        closeSort();
+      });
+    });
+
+    // Filter bottom sheet
+    const filterOverlay = document.getElementById('filterOverlay');
+    const filterSheet = document.getElementById('filterSheet');
+    document.getElementById('filterToggle').addEventListener('click', () => {
+      filterOverlay.classList.add('open');
+      filterSheet.classList.add('open');
+    });
+    function closeFilter() {
+      filterOverlay.classList.remove('open');
+      filterSheet.classList.remove('open');
+    }
+    document.getElementById('filterClose').addEventListener('click', closeFilter);
+    filterOverlay.addEventListener('click', closeFilter);
+
+    function filterProducts() {
+      const cards = document.querySelectorAll('#productGrid .product-card');
+      const maxPrice = parseInt(document.getElementById('priceMax').value) || 999999999;
+      const checkedCats = [...document.querySelectorAll('#filterSheet input[name=cat]:checked')].map(i => i.value);
+      let visible = 0;
+      cards.forEach(card => {
+        const price = parseInt(card.dataset.price);
+        const cat = card.dataset.category;
+        const priceOk = price <= maxPrice;
+        const catOk = checkedCats.length === 0 || checkedCats.some(c => c === cat);
+        const show = priceOk && catOk;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('resultCount').textContent = visible + ' Items';
+      document.getElementById('filterResultCount').textContent = visible;
+    }
+
+    function updatePriceRange(val) {
+      document.getElementById('priceMax').value = val;
+      document.getElementById('priceLabel').textContent = '\u20B9' + parseInt(val).toLocaleString('en-IN');
+      filterProducts();
+    }
+
+    function applyFilters() {
+      filterProducts();
+      closeFilter();
+    }
+
+    document.querySelectorAll('#filterSheet .filter-checkbox input').forEach(cb => {
+      cb.addEventListener('change', filterProducts);
+    });
+
+    function handleSort(val) {
+      const grid = document.getElementById('productGrid');
+      const cards = [...grid.querySelectorAll('.product-card')];
+      cards.sort((a, b) => {
+        const pa = parseInt(a.dataset.price);
+        const pb = parseInt(b.dataset.price);
+        if (val === 'price-asc') return pa - pb;
+        if (val === 'price-desc') return pb - pa;
+        return 0;
+      });
+      cards.forEach(c => grid.appendChild(c));
+    }
+  </script>
+</body>
+</html>
