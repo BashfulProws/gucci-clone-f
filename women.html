@@ -211,8 +211,39 @@
   <script src="js/main.js"></script>
   <script src="js/nav.js"></script>
   <script>
-    // Render products
-    let allWomen = getProductsByCategories(['women_bags','women_rtw','women_shoes','accessories']);
+    // Render products – pure clothing first for top 7 rows (28 items), then mixed
+    const COLS = 4;
+    const CLOTHING_ROWS = 7;
+    const clothingFirst = COLS * CLOTHING_ROWS; // 28 items
+    const clothingSubs = ['Jackets','Dresses','Bottoms','Tops','Knitwear','Skirts'];
+    const womenCategories = ['women_bags','women_rtw','women_shoes','accessories'];
+    const allRtw = (typeof PRODUCTS !== 'undefined' && PRODUCTS['women_rtw']) ? [...PRODUCTS['women_rtw']] : [];
+
+    // Separate pure clothing from non-clothing within women_rtw
+    const clothing = allRtw.filter(p => clothingSubs.includes(p.subcategory));
+    const nonClothing = allRtw.filter(p => !clothingSubs.includes(p.subcategory));
+
+    // First 28 slots: only clothing
+    let allWomen = clothing.splice(0, clothingFirst);
+
+    // Remaining: leftover clothing + non-clothing rtw + other categories, interleaved
+    const restPools = [
+      clothing,
+      nonClothing,
+      (typeof PRODUCTS !== 'undefined' && PRODUCTS['women_bags']) ? [...PRODUCTS['women_bags']] : [],
+      (typeof PRODUCTS !== 'undefined' && PRODUCTS['women_shoes']) ? [...PRODUCTS['women_shoes']] : [],
+      (typeof PRODUCTS !== 'undefined' && PRODUCTS['accessories']) ? [...PRODUCTS['accessories']] : []
+    ];
+    let hasMore = true;
+    while (hasMore) {
+      hasMore = false;
+      for (let i = 0; i < restPools.length; i++) {
+        if (restPools[i].length) {
+          allWomen.push(restPools[i].shift());
+          if (restPools[i].length) hasMore = true;
+        }
+      }
+    }
     renderProductGrid('productGrid', allWomen);
     document.getElementById('resultCount').textContent = allWomen.length + ' Items';
 
